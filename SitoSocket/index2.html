@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket: Introduzione</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <!-- Immagine ridimensionata -->
+            <img src="immagini/Schermata del 2024-12-03 09-04-08.png" alt="Logo" class="img-fluid" style="height: 40px; width: auto;">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="socket.html">Socket</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sistemi.html">Modello OSI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="informatica.html">Informatica</a></li>
+                    <li class="nav-item"><a class="nav-link" href="glossario.html">glossario</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <!-- Hero Section -->
+    <div class="container text-center my-5 ">
+        <h1 class="display-4">Benvenuto nel mondo delle Socket</h1>
+        <p class="lead">Scopri come funzionano le socket, il modello OSI e i protocolli di rete!</p>
+        <a href="socket.html" class="btn btn-primary">Inizia</a>
+
+    </div>
+
+    <div class="container text-center my-5 ">
+        <img src="immagini/informatica.png" alt="Diagramma di una socket" class="img-fluid rounded shadow custom-img2">
+
+    </div>
+
+
+    <div class="container my-5">
+        <div class="row align-items-center">
+            <div id="liveAlertPlaceholder"></div>
+            <button type="button" class="btn btn-primary" id="liveAlertBtn">Benvenuto Su SocketLand</button>
+            <!-- Colonna testo -->
+            <div class="col-md-6">
+                <h2>Cos'è una Socket?</h2>
+                <p>
+                    Una socket è un'interfaccia che permette la comunicazione tra due processi su una rete, 
+                    spesso tra un client e un server. Le socket possono utilizzare protocolli come TCP o UDP, 
+                    e rappresentano un concetto chiave nel networking.
+                </p>
+                <p>
+                    Grazie all'uso delle socket, le applicazioni possono scambiarsi dati in modo strutturato 
+                    ed efficiente, consentendo la creazione di sistemi distribuiti.
+                </p>
+            </div>
+            <!-- Colonna immagine -->
+            <div class="col-md-6 text-center">
+                <img src="immagini/lattinaSocket.jpg" alt="Diagramma di una socket" class="img-fluid rounded shadow custom-img">
+            </div>
+        </div>
+    </div>
+    
+    <hr/>
+
+    <div class="container my-5">
+        <div class="row align-items-center">
+            <!-- Colonna iSmmagine -->
+            <div class="col-md-6 text-center">
+                <img src="immagini/ISO_OSI.jpg" alt="Modello Iso/Osi" class="img-fluid rounded shadow custom-img">
+            </div>
+            <!-- Colonna testo -->
+            <div class="col-md-6">
+                <h2>Il Modello Iso/Osi</h2>
+                <p>
+                    Il Modello Iso/Osi di cui parleremo meglio nella pagina specifica
+                    è un framework concettuale che divide le funzioni di comunicazione di 
+                    rete in sette livelli. L'inSvio di dati su una rete è complesso perché 
+                    diverse tecnologie hardware e software devono funzionare in modo coeso, 
+                    oltre i confini geografici e politici.
+                </p>
+            </div>
+        </div> 
+    </div>
+
+    <hr/>
+
+    <div class="container my-5">
+        <div class="row align-items-center">
+            <!-- Colonna testo -->
+            <div class="col-md-6">
+                <h2>Perchè Sono Utili Le Socket?</h2>
+                <p>
+                    I socket sono utili sia per le applicazioni autonome che di rete. 
+                    I socket consentono lo scambio di informazioni tra i processi sulla stessa macchina 
+                    o su una rete, distribuiscono il lavoro sulla macchina più efficiente e consentono facilmente 
+                    l'accesso ai dati centralizzati.
+                </p>
+            </div>
+            <!-- Colonna immagine -->
+            <div class="col-md-6 text-center">
+                <img src="immagini/telescopio.jpg" alt="Diagramma di una socket" class="img-fluid rounded shadow custom-img">
+            </div>
+        </div>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Cos'è una Socket?</h5>
+                        <p class="card-text">Scopri la definizione e le tipologie di socket.</p>
+                        <a href="socket.html" class="btn btn-outline-primary">Vai alla pagina</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Modello OSI</h5>
+                        <p class="card-text">Esplora i livelli del modello OSI, con un focus sul livello di trasporto.</p>
+                        <a href="sistemi.html" class="btn btn-outline-primary">Vai alla pagina</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">TCP</h5>
+                        <p class="card-text">Il Livello di Trasporto e la Conessione</p>
+                        <a href="informatica.html" class="btn btn-outline-primary">Vai alla pagina</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>SocketLand diritti riservati - Produzione Autonoma - 5E</p>
+    </footer>
+
+    <!-- Bootstrap Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

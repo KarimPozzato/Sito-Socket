@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socket: Introduzione</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <img src="immagini/Schermata del 2024-12-03 09-04-08.png" alt="Logo" class="img-fluid" style="height: 40px; width: auto;">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="index2.html">HomePage</a></li>
+                    <li class="nav-item"><a class="nav-link" href="sistemi.html">Modello OSI</a></li>
+                    <li class="nav-item"><a class="nav-link" href="informatica.html">Informatica</a></li>
+                    <li class="nav-item"><a class="nav-link" href="glossario.html">Glossario</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="position-relative text-center">
+        <img src="immagini/codice.jpg">
+        <div class="overlay">
+            <h2>Scopri le Socket</h2>
+            <a href="#sezione-sotto" class="btn btn-primary">Vai alla sezione</a>
+        </div>
+    </div> 
+
+    <!-- Hero Section -->
+    <div id="sezione-sotto" class="container my-5">
+        <h1 class="display-4">Cos'è una Socket?</h1>
+        <p class="lead">Una socket è un punto finale per una comunicazione bidirezionale tra due processi. È come un "portale" attraverso il quale i dati viaggiano da un'applicazione all'altra. Ogni socket è identificata da due elementi principali:
+            <ul>
+                <li>Indirizzo IP: L'indirizzo del dispositivo su cui è in esecuzione il processo.</li>
+                <li>Porta: Un numero che identifica univocamente un'applicazione specifica sul dispositivo.</li>
+            </ul>
+            Le socket funzionano in modo simile ai numeri di telefono: un'applicazione compone un numero (indirizzo IP e porta) per "chiamare" un'altra applicazione.</p>
+    
+        <h1 class="display-4">Tipologie di socket</h1>
+        <p class="lead">Le socket possono essere suddivise principalmente in due categorie:</p>
+        <h3 class="display-6">Socket Stream(TCP)</h3>
+        <ul>
+            <li>Utilizzano il protocollo TCP (Transmission Control Protocol).</li>
+            <li>Garantiscono una comunicazione affidabile e orientata alla connessione.</li>
+            <li>Sono ideali per applicazioni che necessitano di un trasferimento dati preciso, come le email o il caricamento di file.
+            </li>
+
+        </ul>
+        <h1 class="display-4">Di seguito Troverete il Codice sia lato Client che Server</h1>
+    </div>
+
+    <div id="sezione-sotto" class="container my-5">
+        <h3>Client</h3>
+        <div class="code-box">
+            <pre>
+                int main(int argc,char** argv)
+                {
+       
+                    struct sockaddr_in servizio;
+                    int socketfd,vett[DIM]={4,5,9,7};// identificatore della socket
+                    char str1[DIM],str2[DIM];// dati dei socket
+
+                    // settaggio del socket locale 
+                    servizio.sin_family=AF_INET;
+                    servizio.sin_addr.s_addr=htonl(INADDR_ANY);
+                    servizio.sin_port=htons(SERVERPORT);
+
+                    // impostazione del transport endpoint creazione della socket
+                    socketfd=socket(AF_INET,SOCK_STREAM,0);
+
+                    // richiesta di connessione al server 
+                    connect(socketfd,(struct sockaddr*)&servizio,sizeof(servizio));
+
+                    //scrivo sulla socket
+                    write(socketfd,vett,sizeof(vett));
+    
+                    //chiudo il client
+                    close(socketfd);
+                    return 0;
+                }
+            </pre>
+        </div>
+        <hr/>
+        <h3>Server</h3>
+        <div class="code-box">
+            <pre>
+                int main()
+                {
+                    struct sockaddr_in servizio, addr_remoto;// record con i dati del server e del client
+                    int socketfd, soa, fromlen=sizeof(servizio),vett[DIM];
+                    char str[DIM],newstr[DIM]="ricevuta";
+
+                    // definizione dei dati del socket 
+                    servizio.sin_family=AF_INET;
+                    servizio.sin_addr.s_addr=htonl(INADDR_ANY);
+                    servizio.sin_port=htons(SERVERPORT);
+
+                    // impostazione del transport endpoint del server
+                    socketfd=socket(AF_INET,SOCK_STREAM,0);
+
+                    // leghiamo l'indirizzo al transport endpoint
+                    bind(socketfd,(struct sockaddr*)&servizio,sizeof(servizio));
+
+                    // poniamo il server in ascolto delle richieste dei client 
+                    listen(socketfd,10);// puo attendere fino a 10 client
+                    
+                    // ciclo infinito
+                    for (; ;)
+                    {
+                        printf("\n\nServer in ascolto...");
+
+                        fflush(stdout);
+
+                        soa=accept(socketfd,(struct sockaddr*)&addr_remoto,&fromlen);
+                        //legge dal client
+                        read(soa,vett,sizeof(vett));
+                        
+                        printf("Vettore ricevuto: %d\n");
+                        for(int i=0;i &lt; 4;i++)
+                        {
+                            printf("%d",vett[i]);
+                            close(soa);
+                        }
+                    }     
+                    return 0;   
+                }                   
+            </pre>
+        </div>
+    </div>     
+
+
+    <!-- Footer -->
+    <footer class="navbar-dark bg-dark text-white text-center py-3">
+        <p>Nome Cognome - Classe</p>
+    </footer>
+
+    <!-- Bootstrap Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>

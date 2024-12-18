@@ -1,0 +1,66 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+.custom-img {
+    max-width: 80%; /* Aumenta la dimensione al 80% del contenitore */
+    height: auto; /* Mantiene il rapporto di aspetto */
+}
+
+.custom-img2{
+    max-width: 500%;
+    height: auto;
+}
+
+.hero-section h1, .hero-section p, .hero-section ul {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* Aggiunge ombre per migliorare la leggibilità */
+}
+
+/* CSS per rendere il testo dei link bianco */
+.navbar .nav-link {
+    color: white !important;
+    font-size: 18px !important;
+    text-align: center !important;
+}
+
+
+.position-relative {
+    position: relative; /* Rende il contenitore relativo per il posizionamento assoluto */
+}
+
+.overlay {
+    position: absolute; /* Posiziona l'overlay in modo assoluto */
+    top: 50%; /* Centra verticalmente */
+    left: 50%; /* Centra orizzontalmente */
+    transform: translate(-50%, -50%); /* Centra perfettamente */
+    color: white; /* Colore del testo */
+    text-align: center; /* Centra il testo */
+    background-color: rgba(0, 0, 0, 0.5); /* Sfondo semi-trasparente per migliorare la leggibilità */
+    padding: 10px; /* Spazio interno */
+    border-radius: 10px; /* Bordi stondati per l'overlay */
+}
+
+
+
+.code-box {
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+    overflow-x: auto;
+    font-family: monospace;
+}
+.code-box pre {
+    margin: 0;
+}
